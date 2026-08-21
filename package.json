@@ -1,0 +1,57 @@
+{
+	"name": "jonverk-online",
+	"description": "Anonymous real-time room chat on Cloudflare Workers",
+	"cloudflare": {
+		"label": "React Router + Hono Fullstack App",
+		"products": [
+			"Workers"
+		],
+		"categories": [
+			"starter"
+		],
+		"docs_url": "https://developers.cloudflare.com/workers",
+		"preview_icon_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/d3db20ee-c3bf-4b5c-f1ed-d86021359e00/public",
+		"preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/56caa8a9-d3ab-4ac6-32a9-6a5fc686e000/preview",
+		"publish": true
+	},
+	"dependencies": {
+		"hono": "4.11.1",
+		"isbot": "5.1.32",
+		"nanoid": "5.1.6",
+		"partyserver": "0.0.75",
+		"partysocket": "1.1.6",
+		"react": "19.2.1",
+		"react-dom": "19.2.1",
+		"react-router": "7.9.6"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "1.52.1",
+		"@cloudflare/workers-types": "^5.20260821.1",
+		"@react-router/dev": "7.9.6",
+		"@tailwindcss/vite": "4.1.17",
+		"@types/node": "24.10.1",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"tailwindcss": "4.1.17",
+		"typescript": "5.9.3",
+		"vite": "^7.0.0",
+		"vite-tsconfig-paths": "5.1.4",
+		"wrangler": "^4.125.0"
+	},
+	"private": true,
+	"scripts": {
+		"build": "react-router build",
+		"cf-typegen": "wrangler types",
+		"deploy": "npm run build && wrangler deploy",
+		"dev": "react-router dev",
+		"preview": "npm run build && vite preview",
+		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+	},
+	"type": "module",
+	"allowScripts": {
+		"esbuild@0.28.1": true,
+		"esbuild@0.28.2": true,
+		"workerd@1.20260811.1": true,
+		"workerd@1.20260820.1": true
+	}
+}
