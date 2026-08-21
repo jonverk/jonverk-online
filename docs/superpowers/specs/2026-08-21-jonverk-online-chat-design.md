@@ -18,7 +18,7 @@ Deploy a public, anonymous, real-time room chat at `https://jonverk.online` usin
 
 - Repository: `skneland/jonverk-online`, branch `main`.
 - Worker name: `jonverk-online`.
-- Cloudflare account: `03a9ef9088d1cd4a5cb7bb4281b5a4ee` (Rin.btbj@gmail.com's Account).
+- Cloudflare account: `03a9ef9088d1cd4a5cb7bb4281b5a4ee` (Rins Account).
 - Cloudflare Workers Builds watches the GitHub repository and deploys on pushes to `main`.
 - The apex custom domain `jonverk.online` is detached from `polished-leaf-25ce` and attached to `jonverk-online`.
 - Existing email-routing MX/TXT records remain unchanged. No `www` hostname is introduced in v1.
