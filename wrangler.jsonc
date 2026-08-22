@@ -5,7 +5,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "jonverk-online",
-	"compatibility_date": "2026-08-21",
+	"compatibility_date": "2024-08-21",
 	"main": "./workers/app.ts",
 	"migrations": [
 		{
@@ -21,6 +21,7 @@
 			}
 		]
 	},
+	"d1_databases": [{ "binding": "DB", "database_name": "openapi-db", "database_id": "00000000-0000-0000-0000-000000000000" }],
 	"observability": {
 		"enabled": true
 	},
