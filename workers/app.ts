@@ -2,11 +2,15 @@ import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
 import { routePartykitRequest } from "partyserver";
 
+import { feedRouter } from "./endpoints/feed/router";
+
 export { Chat } from "./chat";
 
-const app = new Hono();
+const app = new Hono<{ Bindings: Env }>();
 
 app.get("/api/health", (c) => c.json({ ok: true }));
+
+app.route("/api/feed", feedRouter);
 
 app.all("*", (c) => {
 	const requestHandler = createRequestHandler(

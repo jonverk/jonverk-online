@@ -21,6 +21,7 @@
 			}
 		]
 	},
+	"d1_databases": [{ "binding": "DB", "database_name": "openapi-db", "database_id": "90060ad3-63a9-4509-90de-52f1b4028bc9" }],
 	"observability": {
 		"enabled": true
 	},
