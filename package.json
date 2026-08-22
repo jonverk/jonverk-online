@@ -15,14 +15,20 @@
 		"publish": true
 	},
 	"dependencies": {
+		"@types/ws": "^8.18.1",
+		"chanfana": "^3.4.0",
 		"hono": "4.11.1",
 		"isbot": "5.1.32",
+		"lucide-react": "^1.33.0",
+		"mermaid": "^11.17.0",
 		"nanoid": "5.1.6",
 		"partyserver": "0.0.75",
 		"partysocket": "1.1.6",
 		"react": "19.2.1",
 		"react-dom": "19.2.1",
-		"react-router": "7.9.6"
+		"react-router": "7.9.6",
+		"ws": "^8.21.3",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "1.52.1",
