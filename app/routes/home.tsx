@@ -28,7 +28,7 @@ export default function Home(_: Route.ComponentProps) {
 		<main className="relative min-h-screen overflow-hidden bg-[#f7f7f5] text-[#171717]">
 			<div className="pointer-events-none absolute -left-32 -top-40 h-96 w-96 rounded-full bg-[#d9e8ff] blur-3xl" />
 			<div className="pointer-events-none absolute -bottom-48 -right-20 h-[32rem] w-[32rem] rounded-full bg-[#f6d7d0] blur-3xl" />
-			<div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-8 sm:px-10 lg:px-16">
+			<div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col border border-dashed px-6 py-8 sm:px-10 lg:px-16">
 				<header className="flex items-center justify-between">
 					<div className="flex items-center gap-3 text-sm font-semibold tracking-tight">
 						<span className="grid h-9 w-9 place-items-center rounded-xl bg-[#171717] text-white shadow-sm">J</span>
@@ -40,8 +40,8 @@ export default function Home(_: Route.ComponentProps) {
 				<section className="grid flex-1 items-center gap-14 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
 					<div className="max-w-xl">
 						<p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-[#6d78a8]">A room for the moment</p>
-						<h1 className="text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-7xl">Talk together, wherever you are.</h1>
-						<p className="mt-7 max-w-md text-lg leading-8 text-black/55">Start a private-by-link room, share the URL, and let the conversation unfold in real time.</p>
+						<h1 className="border border-groove text-center font-architects-daughter text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[rgba(250,0,245,1)] opacity-[0.34] shadow-[1px_1px_3px_0_rgba(0,0,0,1)] sm:text-7xl">Talk together, wherever you are.</h1>
+						<p className="mt-7 mr-auto max-w-md border border-hidden font-architects-daughter text-lg leading-8 text-black/55">Start a private-by-link room, share the URL, and let the conversation unfold in real time.</p>
 						<form onSubmit={createRoom} className="mt-10 flex max-w-md flex-col gap-3 sm:flex-row">
 							<label className="sr-only" htmlFor="name">Your display name</label>
 							<input id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} maxLength={MAX_NAME_LENGTH} placeholder="Choose a display name" className="h-14 flex-1 rounded-2xl border border-black/10 bg-white/80 px-5 text-base outline-none ring-[#6d78a8] transition placeholder:text-black/35 focus:ring-2" autoComplete="nickname" required />
