@@ -1,4 +1,6 @@
-export async function postFeed(c: any) {
+import type { Context } from "hono";
+
+export async function postFeed(c: Context<{ Bindings: Env }>) {
 	const db = c.env.DB as D1Database;
 	const body = await c.req.json();
 	const message = body.message;
