@@ -1,0 +1,20 @@
+import { Activity as ActivityIcon, Bot, Filter, History, Search, UserRound } from "lucide-react";
+import { useMemo, useState } from "react";
+
+import type { Route } from "./+types/activity";
+import { PageHeading, PortalShell, TagBadge } from "../portal/PortalShell";
+import { activitySeed, getEmployee } from "../portal/portal-data";
+
+export function meta(_: Route.MetaArgs) {
+	return [{ title: "Activity log · Jonverk Portal" }, { name: "description", content: "Shared activity and decision trail for JonVerk." }];
+}
+
+export default function Activity() {
+	const [filter, setFilter] = useState<"all" | "human" | "agent">("all");
+	const [query, setQuery] = useState("");
+	const visible = useMemo(() => activitySeed.filter((item) => (filter === "all" || item.kind === filter) && `${item.tag} ${item.action} ${item.target}`.toLowerCase().includes(query.toLowerCase())), [filter, query]);
+	return <PortalShell><PageHeading eyebrow="Workspace / Activity" title="Activity log" description="A steady, shared record of moves, messages, assignments, and answers. Nothing depends on guessing who made the change." action={<div className="flex items-center gap-2 rounded-xl border border-[#d9f0e6] bg-[#eefaf5] px-3 py-2 text-[10px] font-semibold text-[#3b9478]"><span className="h-2 w-2 animate-pulse rounded-full bg-[#4fbd9b]" /> Recording live</div>} />
+		<div className="mt-8 flex flex-col gap-3 rounded-2xl border border-[#e1e3e8] bg-white p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4"><div className="flex items-center gap-2 text-xs font-semibold text-[#70747f]"><History size={16} className="text-[#756ad9]" /> 126 events this week</div><div className="flex flex-col gap-2 sm:flex-row"><label className="flex h-9 items-center gap-2 rounded-xl border border-[#e5e6ea] bg-[#fafafa] px-3 text-xs text-[#a0a3ab]" htmlFor="activity-search"><Search size={14} /><input id="activity-search" value={query} onChange={(event) => setQuery(event.target.value)} className="w-full bg-transparent outline-none placeholder:text-[#a0a3ab] sm:w-44" placeholder="Search activity" /></label><div className="flex gap-1 rounded-xl bg-[#f4f4f6] p-1"><button onClick={() => setFilter("all")} className={`rounded-lg px-3 py-1.5 text-[10px] font-semibold ${filter === "all" ? "bg-white text-[#4f52a0] shadow-sm" : "text-[#9296a1]"}`}>All</button><button onClick={() => setFilter("human")} className={`rounded-lg px-3 py-1.5 text-[10px] font-semibold ${filter === "human" ? "bg-white text-[#4f52a0] shadow-sm" : "text-[#9296a1]"}`}><UserRound size={11} className="mr-1 inline" /> Humans</button><button onClick={() => setFilter("agent")} className={`rounded-lg px-3 py-1.5 text-[10px] font-semibold ${filter === "agent" ? "bg-white text-[#4f52a0] shadow-sm" : "text-[#9296a1]"}`}><Bot size={11} className="mr-1 inline" /> Agents</button></div></div></div>
+		<div className="mt-5 rounded-2xl border border-[#e1e3e8] bg-white p-5 sm:p-7"><div className="mb-5 flex items-center gap-2"><ActivityIcon size={16} className="text-[#756ad9]" /><h2 className="text-sm font-semibold">Recent events</h2><span className="rounded-full bg-[#f1f0ff] px-2 py-0.5 text-[9px] font-semibold text-[#6e63d0]">Live feed</span></div><div className="divide-y divide-[#eff0f2]">{visible.map((item) => { const person = getEmployee(item.tag); return <div key={item.id} className="flex gap-3 py-4 first:pt-0 sm:gap-4"><div className="relative"><TagBadge tag={item.tag} kind={item.kind} color={item.color} /></div><div className="min-w-0 flex-1"><p className="text-xs leading-6 text-[#686c77]"><strong className="font-semibold text-[#363840]">{person.name}</strong> <span className="text-[#858994]">{item.action}</span> <span className="font-medium text-[#5550a1]">{item.target}</span></p><p className="mt-0.5 text-[10px] text-[#a0a3ac]">{item.time} · {item.kind === "agent" ? "Agent employee" : "Human employee"}</p></div><span className="hidden rounded-lg bg-[#f7f7f8] p-2 text-[#a2a5ae] sm:block"><Filter size={13} /></span></div>; })}</div>{visible.length === 0 && <div className="py-10 text-center text-xs text-[#9296a1]">No activity matches this filter.</div>}</div>
+	</PortalShell>;
+}
