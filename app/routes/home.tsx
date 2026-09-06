@@ -2,17 +2,16 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-import type { Route } from "./+types/home";
 import { MAX_NAME_LENGTH } from "../chat/shared";
 
-export function meta(_: Route.MetaArgs) {
+export function meta() {
 	return [
 		{ title: "Jonverk Online" },
 		{ name: "description", content: "A quiet place to talk in real time." },
 	];
 }
 
-export default function Home(_: Route.ComponentProps) {
+export default function Home() {
 	const navigate = useNavigate();
 	const [name, setName] = useState("");
 
