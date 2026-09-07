@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import type { Route } from "./+types/home";
 import { MAX_NAME_LENGTH } from "../chat/shared";
@@ -34,7 +34,10 @@ export default function Home(_: Route.ComponentProps) {
 						<span className="grid h-9 w-9 place-items-center rounded-xl bg-[#171717] text-white shadow-sm">J</span>
 						<span>jonverk.online</span>
 					</div>
-					<span className="rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-xs text-black/60">Open rooms · no accounts</span>
+					<div className="flex items-center gap-2">
+						<span className="rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-xs text-black/60">Open rooms · no accounts</span>
+						<Link to="/wiki" className="rounded-full border border-black/10 bg-white/60 px-3 py-1.5 text-xs font-medium text-black/70 transition hover:bg-white hover:text-black">Wiki</Link>
+					</div>
 				</header>
 
 				<section className="grid flex-1 items-center gap-14 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
