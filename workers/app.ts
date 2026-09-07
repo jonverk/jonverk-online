@@ -4,6 +4,7 @@ import { routePartykitRequest } from "partyserver";
 
 import { feedRouter } from "./endpoints/feed/router";
 import { searchRouter } from "./endpoints/search/router";
+import { scheduled as cronWikiScheduled } from "./cron-wiki";
 
 export { Chat } from "./chat";
 
@@ -30,4 +31,6 @@ export default {
 		const partyResponse = await routePartykitRequest(request, { ...env });
 		return partyResponse ?? app.fetch(request, env, ctx);
 	},
+	// SkyGape-D2: overnight AI digest — fired by the crontrigger in wrangler.jsonc.
+	scheduled: cronWikiScheduled,
 } satisfies ExportedHandler<Env>;

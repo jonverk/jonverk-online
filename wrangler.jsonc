@@ -34,6 +34,21 @@
 		}
 	],
 	/**
+	 * Workers AI — used by the SkyGape-D2 overnight digest cron (workers/cron-wiki.ts).
+	 * https://developers.cloudflare.com/workers/configuration/ai/
+	 */
+	"ai": {
+		"binding": "AI"
+	},
+	/**
+	 * Cron Triggers — SkyGape-D2 autonomous overnight digest.
+	 * Runs daily at 03:00 UTC in the worker's timezone (UTC by default).
+	 * The handler lives in workers/cron-wiki.ts and is wired into workers/app.ts.
+	 */
+	"triggers": {
+		"crons": ["0 3 * * *"]
+	},
+	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
 	 */
