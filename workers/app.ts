@@ -3,6 +3,7 @@ import { createRequestHandler } from "react-router";
 import { routePartykitRequest } from "partyserver";
 
 import { feedRouter } from "./endpoints/feed/router";
+import { searchRouter } from "./endpoints/search/router";
 
 export { Chat } from "./chat";
 
@@ -11,6 +12,7 @@ const app = new Hono<{ Bindings: Env }>();
 app.get("/api/health", (c) => c.json({ ok: true }));
 
 app.route("/api/feed", feedRouter);
+app.route("/api/search", searchRouter);
 
 app.all("*", (c) => {
 	const requestHandler = createRequestHandler(
