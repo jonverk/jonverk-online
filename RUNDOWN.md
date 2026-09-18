@@ -1,6 +1,6 @@
-# Project SkyGape - Four Session Rundown
+# Project SkyGape - Full Session Rundown
 
-This document provides a full rundown of all changes made across the last four sessions, including PR1+ (Feed Endpoints, SkyGape V1 Architecture, Cloud Headquarters, and final fixes), and reverifies the integrity of every state.
+This document provides a full rundown of all changes made across the previous sessions, including PR1+ (Feed Endpoints, SkyGape V1 Architecture, Cloud Headquarters, SSE Agent Streams, and final fixes), and reverifies the integrity of every state.
 
 ## 1. Feed Endpoints PR & Review Fixes (`2a7e462`)
 - **Implemented Feed Endpoints:** Initial setup for feed routing (`getFeed`, `postFeed`).
@@ -26,6 +26,11 @@ This document provides a full rundown of all changes made across the last four s
 - **Final Context Updates:** Confirmed all `getFeed.ts`, `postFeed.ts`, and `router.ts` files were updated with correct `Context<{ Bindings: Env }>` typings.
 - **Configuration Stability:** Double-checked `wrangler.jsonc` validity.
 - **Documentation:** Revised the primary `README.md` to reflect the updated Project SkyGaper description and architecture.
+
+## 5. SSE Agent Streams & Post-Launch CI Fixes (`9a17f5b` & subsequent commits)
+- **SSE Agent Streams (C1):** Developed Server-Sent Events (SSE) streaming for real-time Agent status and communication logs (`/api/stream`), enhancing the `SwarmCanvas` visualization.
+- **Partyserver & Worker Types Alignment:** Fixed dependency conflicts by updating Cloudflare Worker types and ensuring `partyserver` functions correctly with `--legacy-peer-deps` (`f1de64e`, `2670cd8`).
+- **Duplicate Configuration Fixes:** Resolved CI deployment pipeline failures by removing a duplicate Cloudflare D1 database binding in `wrangler.jsonc` (`f479225`, `0896f72`, etc.).
 
 ---
 
