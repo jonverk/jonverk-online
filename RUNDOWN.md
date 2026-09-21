@@ -27,6 +27,11 @@ This document provides a full rundown of all changes made across the last four s
 - **Configuration Stability:** Double-checked `wrangler.jsonc` validity.
 - **Documentation:** Revised the primary `README.md` to reflect the updated Project SkyGaper description and architecture.
 
+## 5. SSE Agent Status and Event Stream (`9a17f5b`)
+- **Event Streaming:** Implemented Server-Sent Events (SSE) for agent telemetry and real-time streams at `/api/stream` endpoint.
+- **UI:** Added agent visual status, agent chat canvas, and updated logo to the overall React Router App UI.
+- **Documentation:** Expanded project rundown to include this new feature.
+
 ---
 
 ## State Reverification
