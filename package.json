@@ -60,5 +60,10 @@
 		"esbuild@0.28.2": true,
 		"workerd@1.20260811.1": true,
 		"workerd@1.20260820.1": true
+	},
+	"overrides": {
+		"partyserver": {
+			"@cloudflare/workers-types": "$@cloudflare/workers-types"
+		}
 	}
 }
