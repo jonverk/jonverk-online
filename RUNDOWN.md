@@ -27,6 +27,11 @@ This document provides a full rundown of all changes made across the last four s
 - **Configuration Stability:** Double-checked `wrangler.jsonc` validity.
 - **Documentation:** Revised the primary `README.md` to reflect the updated Project SkyGaper description and architecture.
 
+## 5. Post-Verification CI & Dependency Fixes (`0e96e8b`)
+- **Peer Dependency Resolution:** Fixed partyserver's peer dependency conflicts with `@cloudflare/workers-types` by updating `.npmrc` to set `legacy-peer-deps=true`.
+- **Configuration Consolidation:** Removed duplicate Cloudflare D1 binding configurations in `wrangler.jsonc` that caused silent CI deployment failures.
+- **CI Alignment:** Assured alignment between partyserver, Cloudflare worker types, and CI deployment environments.
+
 ---
 
 ## State Reverification
